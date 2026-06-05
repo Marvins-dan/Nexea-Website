@@ -9,24 +9,30 @@ import logo from "../NEXEA logo1.png";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-40 md:pt-32 pb-20 px-4 overflow-hidden">
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 md:left-16 md:translate-x-0 z-50">
-        <Image src={logo} alt="NEXEA Logo" width={180} height={60} className="w-32 md:w-[180px] h-auto object-contain" priority />
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 pb-20 px-4 overflow-hidden">
+      <div className="hidden md:block absolute top-8 left-16 z-50">
+        <Image src={logo} alt="NEXEA Logo" width={180} height={60} className="w-[180px] h-auto object-contain" priority />
       </div>
 
       <div className="container max-w-6xl mx-auto text-center relative z-10 flex flex-col items-center">
+        {/* Mobile Logo */}
+        <div className="md:hidden mb-10">
+          <Image src={logo} alt="NEXEA Logo" width={120} height={60} className="w-24 h-auto object-contain mx-auto" priority />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="inline-flex items-center gap-4 mb-8 glass px-4 py-2 rounded-full border border-white/10"
+          className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-8 glass px-6 py-4 md:py-2 rounded-2xl md:rounded-full border border-white/10 w-full max-w-xs md:max-w-none"
         >
-          <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
-          <span className="text-sm font-medium text-white/80">Built on Stellar</span>
-          <span className="w-px h-4 bg-white/20"></span>
+          <div className="flex items-center gap-2">
+            <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
+            <span className="text-sm font-medium text-white/80">Built on Stellar</span>
+          </div>
+          <span className="hidden md:block w-px h-4 bg-white/20"></span>
           <span className="text-sm font-medium text-white/80">Coming Soon</span>
-          <span className="w-px h-4 bg-white/20"></span>
-          <span className="text-sm font-medium text-white/80">Microtransactions from $0.50</span>
+          <span className="hidden md:block w-px h-4 bg-white/20"></span>
+          <span className="text-sm font-medium text-white/80 text-center">Microtransactions from $0.50</span>
         </motion.div>
 
         <motion.h1
