@@ -34,7 +34,7 @@ export default function ProductExperience() {
               whileInView={{ rotateY: -10, scale: 1 }}
               transition={{ duration: 1 }}
               viewport={{ once: true }}
-              className="w-full max-w-sm aspect-[9/19] rounded-[2.5rem] border-[8px] border-neutral-900 bg-neutral-950 shadow-2xl relative overflow-hidden"
+              className="w-full max-w-[280px] sm:max-w-sm aspect-[9/19] rounded-[2.5rem] border-[8px] border-neutral-900 bg-neutral-950 shadow-2xl relative overflow-hidden"
             >
               {/* Screen Content Mockup */}
               <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 to-black p-6 flex flex-col">

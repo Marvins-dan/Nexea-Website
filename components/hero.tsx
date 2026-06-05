@@ -9,9 +9,9 @@ import logo from "../NEXEA logo1.png";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-20 px-4 overflow-hidden">
-      <div className="absolute top-8 left-8 md:left-16 z-50">
-        <Image src={logo} alt="NEXEA Logo" width={180} height={60} className="object-contain" priority />
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-40 md:pt-32 pb-20 px-4 overflow-hidden">
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 md:left-16 md:translate-x-0 z-50">
+        <Image src={logo} alt="NEXEA Logo" width={180} height={60} className="w-32 md:w-[180px] h-auto object-contain" priority />
       </div>
 
       <div className="container max-w-6xl mx-auto text-center relative z-10 flex flex-col items-center">
