@@ -18,7 +18,21 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        poppins: ["var(--font-poppins)"],
+        inter: ["var(--font-inter)"],
+      },
       colors: {
+        nexea: {
+          navy: "#081224",
+          blue: "#2563EB",
+          cyan: "#06B6D4",
+          emerald: "#10B981",
+          gold: "#F59E0B",
+          white: "#FFFFFF",
+          gray: "#F8FAFC",
+          lightblue: "#EEF6FF",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -67,10 +81,15 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 6s ease-in-out infinite",
       },
     },
   },
