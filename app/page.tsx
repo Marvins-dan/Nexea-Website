@@ -3,18 +3,15 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import Hero from "@/components/hero";
-import Problem from "@/components/problem";
-import Solution from "@/components/solution";
-import StellarSection from "@/components/stellar-section";
+import TrustBadges from "@/components/trust-badges";
 import ProductExperience from "@/components/product-experience";
+import ProblemSolution from "@/components/problem-solution";
 import MarketOpportunity from "@/components/market-opportunity";
-import Ecosystem from "@/components/ecosystem";
 import Roadmap from "@/components/roadmap";
 import Team from "@/components/team";
+import Investors from "@/components/investors";
 import JoinWaitlist from "@/components/join-waitlist";
 import Footer from "@/components/footer";
-import dynamic from "next/dynamic";
-const Background3D = dynamic(() => import("@/components/background-3d"), { ssr: false });
 
 export default function Home() {
   useEffect(() => {
@@ -41,22 +38,17 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      <Background3D />
-      
-      <div className="relative z-10">
-        <Hero />
-        <Problem />
-        <Solution />
-        <StellarSection />
-        <ProductExperience />
-        <MarketOpportunity />
-        <Ecosystem />
-        <Roadmap />
-        <Team />
-        <JoinWaitlist />
-        <Footer />
-      </div>
+    <main className="relative min-h-screen overflow-x-hidden bg-nexea-gray text-nexea-navy">
+      <Hero />
+      <TrustBadges />
+      <ProductExperience />
+      <ProblemSolution />
+      <MarketOpportunity />
+      <Roadmap />
+      <Team />
+      <Investors />
+      <JoinWaitlist />
+      <Footer />
     </main>
   );
 }
