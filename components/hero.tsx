@@ -2,102 +2,78 @@
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
-import Image from "next/image";
-// Using absolute path for logo since we can't easily move it to public
-// Wait, in Next.js you need a relative path from this file if it's outside src/public, let's use the correct relative path
-import logo from "../NEXEA logo1.png";
+import PhoneMockups from "./phone-mockups";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 pb-20 px-4 overflow-hidden">
-      <div className="hidden md:block absolute top-8 left-16 z-50">
-        <Image src={logo} alt="NEXEA Logo" width={180} height={60} className="w-[180px] h-auto object-contain" priority />
+    <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 md:pt-32 pb-20 px-4 overflow-hidden bg-nexea-gray">
+      {/* Background Particles Placeholder */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-nexea-blue/5 blur-[120px]"></div>
+        <div className="absolute top-[30%] -left-[10%] w-[40%] h-[40%] rounded-full bg-nexea-cyan/5 blur-[120px]"></div>
       </div>
 
-      <div className="container max-w-6xl mx-auto text-center relative z-10 flex flex-col items-center">
-        {/* Mobile Logo */}
-        <div className="md:hidden mb-10">
-          <Image src={logo} alt="NEXEA Logo" width={120} height={60} className="w-24 h-auto object-contain mx-auto" priority />
+      <div className="container max-w-7xl mx-auto relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+        
+        {/* Left Side: Text and CTAs */}
+        <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 mb-6 bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm"
+          >
+            <span className="flex h-2 w-2 rounded-full bg-nexea-blue animate-pulse"></span>
+            <span className="text-sm font-semibold text-nexea-navy">Powered by Stellar</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-nexea-navy font-poppins"
+          >
+            Finance <br className="hidden lg:block" /> Without Borders
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-lg text-gray-600 max-w-2xl lg:max-w-xl mb-10"
+          >
+            NEXEA combines payments, blockchain utility, rewards, and digital assets into one seamless ecosystem powered by Stellar.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+          >
+            <Button size="lg" className="bg-nexea-navy text-white hover:bg-gray-800 text-base px-8 h-14 rounded-full font-medium shadow-xl shadow-nexea-navy/10">
+              Request Investor Deck
+            </Button>
+            <Button size="lg" variant="outline" className="text-base px-8 h-14 rounded-full font-medium border-gray-200 text-nexea-navy hover:bg-gray-50 bg-white">
+              Join Waitlist
+            </Button>
+          </motion.div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-8 glass px-6 py-4 md:py-2 rounded-2xl md:rounded-full border border-white/10 w-full max-w-xs md:max-w-none"
+        
+        {/* Right Side: 3D Phone Mockups */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+          className="flex-1 w-full max-w-2xl flex justify-center lg:justify-end relative"
         >
-          <div className="flex items-center gap-2">
-            <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
-            <span className="text-sm font-medium text-white/80">Built on Stellar</span>
-          </div>
-          <span className="hidden md:block w-px h-4 bg-white/20"></span>
-          <span className="text-sm font-medium text-white/80">Coming Soon</span>
-          <span className="hidden md:block w-px h-4 bg-white/20"></span>
-          <span className="text-sm font-medium text-white/80 text-center">Microtransactions from $0.50</span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-gradient"
-        >
-          Finance Without Borders
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-lg md:text-xl text-white/60 max-w-3xl mb-12"
-        >
-          NEXEA combines everyday payments, blockchain utility, and digital rewards into one seamless ecosystem powered by Stellar.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
-          <Button size="lg" className="bg-white text-black hover:bg-white/90 text-base px-8 h-14 rounded-full font-medium">
-            Join Waitlist
-          </Button>
-          <Button size="lg" variant="outline" className="text-base px-8 h-14 rounded-full font-medium glass border-white/10 hover:bg-white/5">
-            Request Investor Deck
-          </Button>
+          {/* Decorative rings behind mockups */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square rounded-full border-[0.5px] border-nexea-blue/10 pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] aspect-square rounded-full border-[0.5px] border-nexea-cyan/10 pointer-events-none"></div>
+          
+          <PhoneMockups />
         </motion.div>
       </div>
-      
-      {/* Abstract Phone Mockup visualization below hero text */}
-      <motion.div 
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-        className="w-full max-w-4xl mx-auto mt-20 relative perspective-[1000px]"
-      >
-        <div className="w-full aspect-[21/9] rounded-t-3xl border border-white/10 bg-black/40 backdrop-blur-md overflow-hidden relative" style={{ transform: "rotateX(20deg)", boxShadow: "0 -20px 100px rgba(255,255,255,0.05)" }}>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent"></div>
-          {/* Mockup UI placeholders */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-96 rounded-[2rem] border border-white/20 bg-black/60 backdrop-blur-xl flex flex-col p-4 shadow-2xl">
-            <div className="w-full flex justify-between items-center mb-6">
-              <div className="w-8 h-8 rounded-full bg-white/10"></div>
-              <div className="w-20 h-3 rounded-full bg-white/10"></div>
-            </div>
-            <div className="w-full h-24 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 mb-4 p-4 flex flex-col justify-end">
-              <div className="text-xs text-white/50 mb-1">Total Balance</div>
-              <div className="text-2xl font-bold">$12,450.00</div>
-            </div>
-            <div className="grid grid-cols-4 gap-2 mb-4">
-              {[1, 2, 3, 4].map(i => (
-                <div key={i} className="aspect-square rounded-xl bg-white/5 flex items-center justify-center">
-                  <div className="w-4 h-4 rounded-full bg-white/20"></div>
-                </div>
-              ))}
-            </div>
-            <div className="flex-1 rounded-xl bg-white/5 border border-white/5 mt-2"></div>
-          </div>
-        </div>
-      </motion.div>
     </section>
   );
 }

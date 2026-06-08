@@ -2,56 +2,98 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import ahmedImage from "../Ahmedee-obada.png";
-import danielImage from "../Daniel.png";
-import godsonImage from "../Godson.png";
-import maryannImage from "../Maryannn.png";
+import { Linkedin } from "lucide-react";
+
+import ahmedImg from "../Ahmedee-obada.png";
+import danielImg from "../Daniel.png";
+import godsonImg from "../Godson.png";
+import maryannImg from "../Maryannn.png";
+
+const team = [
+  {
+    name: "Ahmed Obada",
+    role: "Founder",
+    bio: "Visionary leader driving the strategic direction of NEXEA. Expertise in blockchain technology and African financial markets.",
+    image: ahmedImg,
+    linkedin: "#",
+  },
+  {
+    name: "Daniel Adebayo",
+    role: "CTO & Co-Founder",
+    bio: "Technical architect scaling NEXEA's infrastructure. Previously built high-availability payment systems across Africa.",
+    image: danielImg,
+    linkedin: "#",
+  },
+  {
+    name: "Godson Christian",
+    role: "Marketing Strategist",
+    bio: "Growth expert focused on user acquisition and brand positioning within the competitive fintech landscape.",
+    image: godsonImg,
+    linkedin: "#",
+  },
+  {
+    name: "MaryAnn Chima",
+    role: "UI/UX Designer",
+    bio: "Creating intuitive and beautiful digital experiences that make complex financial tools accessible to everyone.",
+    image: maryannImg,
+    linkedin: "#",
+  },
+];
 
 export default function Team() {
-  const team = [
-    { name: "Ahmed Obada", role: "Founder", bio: "Visionary leader with a passion for fintech and blockchain integration in emerging markets.", image: ahmedImage },
-    { name: "Daniel Adebayo", role: "CTO & Co-Founder", bio: "Technical architect specializing in scalable decentralized applications and financial infrastructure.", image: danielImage },
-    { name: "Godson Christian", role: "Marketing Strategist", bio: "Growth expert driving user acquisition and brand presence across key African markets.", image: godsonImage },
-    { name: "MaryAnn Chima", role: "UI/UX Designer", bio: "Design thinking specialist creating intuitive and premium digital experiences for everyday users.", image: maryannImage },
-  ];
-
   return (
-    <section className="py-32 px-4 relative">
-      <div className="container max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-bold mb-20 text-center text-gradient">Meet The Team</h2>
+    <section id="team" className="py-24 bg-white relative">
+      <div className="container max-w-7xl mx-auto px-4 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold font-poppins text-nexea-navy mb-6 tracking-tight"
+          >
+            Built by Industry Experts
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-gray-600"
+          >
+            Our team brings together decades of experience in traditional finance, blockchain technology, and consumer software.
+          </motion.p>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {team.map((member, i) => (
-            <motion.div 
-              key={i}
-              whileHover={{ y: -10 }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {team.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="glass p-6 rounded-3xl group relative overflow-hidden"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-gray-50 rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow group text-center flex flex-col items-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-neutral-800 to-neutral-900 mx-auto mb-6 border border-white/10 flex items-center justify-center overflow-hidden relative">
-                {member.image ? (
-                  <Image src={member.image} alt={member.name} fill className="object-cover" />
-                ) : (
-                  <span className="text-2xl font-bold text-white/30">{member.name.charAt(0)}</span>
-                )}
+              <div className="w-32 h-32 rounded-full overflow-hidden mb-6 relative border-4 border-white shadow-md group-hover:scale-105 transition-transform duration-300 bg-white flex items-center justify-center">
+                <Image 
+                  src={member.image} 
+                  alt={member.name} 
+                  fill 
+                  className="object-cover"
+                />
               </div>
-              
-              <h3 className="text-xl font-bold text-center mb-1">{member.name}</h3>
-              <div className="text-sm text-center text-blue-400 mb-4">{member.role}</div>
-              <p className="text-sm text-white/60 text-center leading-relaxed mb-6">
+              <h3 className="text-xl font-bold text-nexea-navy mb-1">{member.name}</h3>
+              <p className="text-sm font-semibold text-nexea-blue mb-4">{member.role}</p>
+              <p className="text-sm text-gray-600 mb-6 flex-1">
                 {member.bio}
               </p>
-              
-              <div className="flex justify-center">
-                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer">
-                  <svg className="w-4 h-4 text-white/70" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </div>
-              </div>
+              <a 
+                href={member.linkedin} 
+                className="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-nexea-blue hover:border-nexea-blue transition-colors"
+                aria-label={`LinkedIn of ${member.name}`}
+              >
+                <Linkedin size={18} />
+              </a>
             </motion.div>
           ))}
         </div>
